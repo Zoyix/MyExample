@@ -23,4 +23,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     implementation project(':latte-ec')
+
+    //沉浸式状态栏
+    compile('com.github.niorgai:StatusBarCompat:2.1.4', {
+        exclude group: 'com.android.support'
+    })
 }

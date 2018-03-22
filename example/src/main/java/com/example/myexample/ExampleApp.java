@@ -1,11 +1,10 @@
 package com.example.myexample;
 
 import android.app.Application;
-import android.content.Context;
 
 import com.blankj.utilcode.util.Utils;
 import com.example.latte.core.app.Latte;
-import com.example.latte.core.icon.FontEcModule;
+import com.example.latte.ec.icon.FontEcModule;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 

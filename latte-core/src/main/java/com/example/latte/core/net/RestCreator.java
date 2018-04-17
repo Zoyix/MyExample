@@ -19,18 +19,6 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
  */
 
 public class RestCreator {
-
-    /**
-     * 保证RestClientBuilder的PARAMS不为null
-     */
-    private static final class ParamsHolder {
-        private static final WeakHashMap<String, Object> PARAMS = new WeakHashMap<>();
-    }
-
-    public static WeakHashMap<String, Object> getParams() {
-        return ParamsHolder.PARAMS;
-    }
-
     /**
      *  内部类构建好Retrofit
      */

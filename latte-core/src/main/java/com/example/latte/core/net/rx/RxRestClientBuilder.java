@@ -15,7 +15,7 @@ import okhttp3.RequestBody;
 
 public class RxRestClientBuilder {
     private String mUrl = null;
-    private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
+    private final WeakHashMap<String, Object> PARAMS = new WeakHashMap<>();
     private RequestBody mIBody = null;
     private Context mContext = null;
     private LoaderStyle mLoaderStyle = null;

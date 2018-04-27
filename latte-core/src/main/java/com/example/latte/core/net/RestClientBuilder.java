@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.example.latte.core.net.callBack.IError;
 import com.example.latte.core.net.callBack.IFailure;
+import com.example.latte.core.net.callBack.IProgress;
 import com.example.latte.core.net.callBack.IRequest;
 import com.example.latte.core.net.callBack.ISuccess;
 import com.example.latte.core.ui.loader.LoaderStyle;
@@ -27,6 +28,7 @@ public class RestClientBuilder {
     private final WeakHashMap<String, Object> PARAMS = new WeakHashMap<>();
     private IRequest mIRequest = null;
     private ISuccess mISuccess = null;
+    private IProgress mIProgress = null;
     private IFailure mIFailure = null;
     private IError mIError = null;
     private RequestBody mIBody = null;
@@ -73,6 +75,7 @@ public class RestClientBuilder {
 
     /**
      * 下载后文件存放的目录
+     *
      * @param dir
      * @return
      */
@@ -83,6 +86,7 @@ public class RestClientBuilder {
 
     /**
      * 后缀名
+     *
      * @param extension
      * @return
      */
@@ -93,6 +97,7 @@ public class RestClientBuilder {
 
     /**
      * 传入原始数据 不知道干嘛的
+     *
      * @param raw
      * @return
      */
@@ -112,6 +117,11 @@ public class RestClientBuilder {
         return this;
     }
 
+    public final RestClientBuilder progress(IProgress iProgress) {
+        this.mIProgress = iProgress;
+        return this;
+    }
+
     public final RestClientBuilder failure(IFailure iFailure) {
         this.mIFailure = iFailure;
         return this;
@@ -125,6 +135,7 @@ public class RestClientBuilder {
     /**
      * 添加指定样式的loader
      * 因为RestClient已经封装好了loader，网络请求时若要改变样式，传入就行
+     *
      * @param context
      * @return
      */
@@ -136,6 +147,7 @@ public class RestClientBuilder {
 
     /**
      * 添加默认样式的loader
+     *
      * @param context
      * @return
      */
@@ -147,7 +159,7 @@ public class RestClientBuilder {
 
 
     public final RestClient build() {
-        return new RestClient(mUrl, PARAMS, mDownloadDir, mExtension, mName, mIRequest, mISuccess, mIFailure, mIError, mIBody, mFile, mContext, mLoaderStyle);
+        return new RestClient(mUrl, PARAMS, mDownloadDir, mExtension, mName, mIRequest, mISuccess, mIProgress,mIFailure, mIError, mIBody, mFile, mContext, mLoaderStyle);
     }
 
 
